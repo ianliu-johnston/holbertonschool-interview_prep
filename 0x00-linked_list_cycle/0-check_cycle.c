@@ -1,4 +1,5 @@
 #include "lists.h"
+#include <stdio.h>
 #define NOCYCLE 0
 #define CYCLE 1
 
@@ -9,11 +10,16 @@
   **/
 int check_cycle(listint_t *list)
 {
-	listint_t *head;
+	listint_t *tortoise, *hare;
 
-	head = list;
-	while ((head = head->next) != NULL)
-		if ((head->next) == list)
+	tortoise = list;
+	hare = list->next;
+	while (tortoise && hare && hare->next)
+	{
+		tortoise = tortoise->next;
+		hare = hare->next->next;
+		if (tortoise == hare)
 			return (CYCLE);
+	}
 	return (NOCYCLE);
 }
