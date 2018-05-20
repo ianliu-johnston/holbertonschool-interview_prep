@@ -1,5 +1,4 @@
 #include "lists.h"
-#include <stdio.h>
 #define NOCYCLE 0
 #define CYCLE 1
 
