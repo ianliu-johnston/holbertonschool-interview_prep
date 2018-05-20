@@ -1,5 +1,7 @@
 #include "lists.h"
 #include <stdio.h>
+#define NOCYCLE 0
+#define CYCLE 1
 
 /**
   * check_cycle - Checks singly linked lists for cycles
@@ -11,13 +13,13 @@ int check_cycle(listint_t *list)
 	listint_t *tortoise, *hare;
 
 	tortoise = list;
-	hare = list->next;
+	hare = list;
 	while (tortoise && tortoise->next && hare && hare->next)
 	{
 		tortoise = tortoise->next;
 		hare = hare->next->next;
 		if (tortoise == hare)
-			return (1);
+			return (CYCLE);
 	}
-	return (0);
+	return (NOCYCLE);
 }
