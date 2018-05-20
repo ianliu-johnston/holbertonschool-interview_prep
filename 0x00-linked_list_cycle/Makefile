@@ -2,11 +2,15 @@
 # debug usage: make DEBUG=1
 
 CC=gcc
-SRC=0-check_cycle.c 0-linked_lists.c 0-main.c
+SRC_DIR=src
+SRC=0-check_cycle.c\
+   	$(SRC_DIR)/0-linked_lists.c\
+	$(SRC_DIR)/0-main.c
+INC_DIR=./
 INC=lists.h
-OBJ=$(SRC:.c=.o)
 NAME=cycle
-CFLAGS=-Wall -Werror -Wextra -pedantic
+OBJ=$(SRC:.c=.o)
+CFLAGS=-Wall -Werror -Wextra -pedantic -I $(INC_DIR)
 
 DEBUG=0
 ifeq ($(DEBUG),1)
