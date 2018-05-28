@@ -25,8 +25,6 @@ listint_t *insert_node(listint_t **head, int number)
 	while (cursor->next && cursor->next->n < number)
 		cursor = cursor->next;
 
-	printf("Cursor Loc: %d\n", cursor->n);
-
 	if (cursor == *head)
 	{
 		new_node->next = *head;
