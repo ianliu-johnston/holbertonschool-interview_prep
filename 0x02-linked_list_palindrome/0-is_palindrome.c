@@ -12,7 +12,7 @@
 int big_list_palindrome(listint_t **head)
 {
 	head++;
-	return (NOT_PALINDROME);
+	return (PALINDROME);
 }
 
 /**
