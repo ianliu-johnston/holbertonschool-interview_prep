@@ -1,1 +1,1 @@
-Simple Function to check for cycles in linked lists
+Simple Function to check for palindromes in integers.
