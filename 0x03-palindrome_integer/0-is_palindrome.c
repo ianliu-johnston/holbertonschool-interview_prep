@@ -1,5 +1,4 @@
 #include "palindrome.h"
-#include <stdio.h>
 #define PALINDROME 1
 #define NOT_PALINDROME 0
 
@@ -12,17 +11,16 @@
 int is_palindrome(unsigned long n)
 {
 	unsigned long i = 0;
+	unsigned long digits = 0;
 	unsigned long exponent = 1;
-	unsigned long count = 0;
 
-	for (i = n; i >= 10; i = i / 10, count++)
+	for (i = n; i >= 10; i = i / 10, digits++)
 		exponent *= 10;
-	for (i = count / 2; count > i; count--)
+	for (i = digits / 2; digits > i; digits--)
 	{
 		if (n / exponent != n % 10)
 			return (NOT_PALINDROME);
-		n -= (n / exponent) * exponent;
-		n = n / 10;
+		n = (n - (n / exponent) * exponent) / 10;
 		exponent = exponent / 100;
 	}
 	return (PALINDROME);
